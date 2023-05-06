@@ -1,6 +1,7 @@
-import { OrbitControls, Html } from '@react-three/drei'
+import { OrbitControls, useTexture } from '@react-three/drei'
 
 function CubeExample() {
+  const [woodenFloor] = useTexture(['Planks030A_4K_Color.jpg'])
   return (
     <>
       <OrbitControls makeDefault />
@@ -12,7 +13,7 @@ function CubeExample() {
       <mesh rotation-x={Math.PI * -0.5} position-y={-1} scale={10}>
         <planeGeometry />
         {/* <meshStandardMaterial color='greenyellow' /> */}
-        <meshStandardMaterial color='lightGreen' />
+        <meshStandardMaterial map={woodenFloor} />
       </mesh>
     </>
   )

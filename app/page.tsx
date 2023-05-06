@@ -8,8 +8,8 @@ export default function Page() {
   return (
     <>
       <Canvas>
-        <pointLight position={[10, 10, 10]} intensity={0.6} />
-        <ambientLight intensity={0.7} color='yellowGreen' />
+        <pointLight position={[10, 10, 10]} intensity={0.6} color='white' />
+        <ambientLight intensity={0.7} color='white' />
         <Room />
       </Canvas>
     </>
