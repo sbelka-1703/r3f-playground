@@ -5,11 +5,14 @@ function CubeExample() {
     <>
       <OrbitControls makeDefault />
       <mesh>
-        <Html className='text-gre whitespace-nowrap font-serif text-2xl' center position-y={1}>
-          Spin me around!
-        </Html>
         <boxGeometry />
         <meshStandardMaterial />
+      </mesh>
+
+      <mesh rotation-x={Math.PI * -0.5} position-y={-1} scale={10}>
+        <planeGeometry />
+        {/* <meshStandardMaterial color='greenyellow' /> */}
+        <meshStandardMaterial color='lightGreen' />
       </mesh>
     </>
   )
