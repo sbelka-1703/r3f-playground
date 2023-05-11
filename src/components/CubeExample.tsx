@@ -4,7 +4,7 @@ function CubeExample() {
   return (
     <>
       <OrbitControls makeDefault />
-      <mesh>
+      <mesh castShadow>
         <Html className='text-gre whitespace-nowrap font-serif text-2xl' center position-y={1}>
           Spin me around!
         </Html>
