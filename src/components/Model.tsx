@@ -1,5 +1,4 @@
 import { useLoader } from '@react-three/fiber'
-import { useState } from 'react'
 import { GLTFLoader } from 'three-stdlib'
 import { Vector3 } from 'three'
 
