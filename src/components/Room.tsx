@@ -4,6 +4,7 @@ import Model from './Model'
 import BackWall from './walls/BackWall'
 import SideWall from './walls/SideWall'
 import { useControls } from 'leva'
+import DirectionalLightWithHelper from './light/DeriectionalLightHelper'
 
 function Room() {
   const map = useTexture('textures/Plank030A/Planks030A_2K_Color.jpg')
@@ -12,12 +13,14 @@ function Room() {
   const displacementMap = useTexture('textures/Plank030A/Planks030A_2K_Displacement.jpg')
 
   const { sunPosition } = useControls('sky', {
-    sunPosition: { value: [0, 0, 0] },
+    sunPosition: { value: [1, 2, 3] },
   })
 
   return (
     <>
       <Sky sunPosition={sunPosition} />
+      <DirectionalLightWithHelper position={sunPosition} />
+
       <OrbitControls makeDefault />
       <PivotControls>
         <mesh castShadow>
@@ -39,7 +42,7 @@ function Room() {
       <SideWall position={[0, 2, -5]} rotation={[0, Math.PI, 0]} />
       <BackWall position={[5, 2, 0]} rotation={[0, Math.PI * 0.5, 0]} />
 
-      <Model url='/models/broken-window/broken_window.glb' position={[5, 2, 0]} rotation={[0, 1.55, 0]} />
+      {/* <Model url='/models/broken-window/broken_window.glb' position={[5, 2, 0]} rotation={[0, 1.55, 0]} /> */}
     </>
   )
 }
