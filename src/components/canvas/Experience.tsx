@@ -39,21 +39,21 @@ export default function Experience() {
   })
 
   const { color, opacity, blur } = useControls('contact shadows', {
-    color: '#1d8f75',
-    opacity: { value: 0.4, min: 0, max: 1 },
-    blur: { value: 2.8, min: 0, max: 10 },
+    color: '#000000 ',
+    opacity: { value: 0.5, min: 0, max: 1 },
+    blur: { value: 0.5, min: 0, max: 10 },
   })
 
   const { sunPosition } = useControls('sky', {
     sunPosition: { value: [1, 2, 3] },
   })
 
-  const { envMapIntensity, envMapHeight, envMapRadius, envMapScale } = useControls('environment map', {
-    envMapIntensity: { value: 7, min: 0, max: 12 },
-    envMapHeight: { value: 7, min: 0, max: 100 },
-    envMapRadius: { value: 28, min: 10, max: 1000 },
-    envMapScale: { value: 100, min: 10, max: 1000 },
-  })
+  // const { envMapIntensity, envMapHeight, envMapRadius, envMapScale } = useControls('environment map', {
+  //   envMapIntensity: { value: 7, min: 0, max: 12 },
+  //   envMapHeight: { value: 7, min: 0, max: 100 },
+  //   envMapRadius: { value: 28, min: 10, max: 1000 },
+  //   envMapScale: { value: 100, min: 10, max: 1000 },
+  // })
 
   // Causing out of memory error
   // const { envMapIntensity } = useControls('environment map', {
@@ -132,18 +132,17 @@ export default function Experience() {
         </Float>
       </Environment>
       {/* <Sky sunPosition={sunPosition} /> */}
-      {/* <ContactShadows
-        position={[0, 0, 0]}
+      <ContactShadows
+        position={[0, -0.99, 0]}
         scale={10}
         resolution={512}
         far={5}
         color={color}
         opacity={opacity}
         blur={blur}
-        frames={1}
       />
-      <BakeShadows />
-      <color attach="background" args={['ivory']} />  */}
+      {/* <BakeShadows />
+      <color attach='background' args={['ivory']} /> */}
 
       {/* <directionalLight
         position={sunPosition}
@@ -167,17 +166,12 @@ export default function Experience() {
         temporal
         blend={100}
       >
-        <directionalLight position={[1, 2, 3]} castShadow />
-        <RandomizedLight
-          amount={8}
-          radius={1}
-          ambient={0.5}
-          intensity={1}
-          position={[1, 2, 3]}
-          bias={0.001}
-        />
+       
       </AccumulativeShadows> */}
-      {/* <ambientLight intensity={0.5} /> */}
+      <ambientLight intensity={0.5} />
+      <Sky sunPosition={sunPosition} />
+      <directionalLight position={[1, 2, 3]} castShadow />
+      {/* <RandomizedLight amount={8} radius={1} ambient={0.5} intensity={1} position={[1, 2, 3]} bias={0.001} /> */}
 
       {/* <Stage
         contactShadow={{ opacity: 0.2, blur: 3 }}
@@ -187,32 +181,32 @@ export default function Experience() {
         // Change the directional lights intensity
         intensity={1}
       > */}
-      <Stage
+      {/* <Stage
         contactShadow={{ opacity: 0.2, blur: 3 }}
         shadows
         adjustCamera
         intensity={1}
         environment='city'
         preset='rembrandt'
-      >
-        <Perf position='top-left' />
+      > */}
+      <Perf position='top-left' />
 
-        <OrbitControls makeDefault />
+      <OrbitControls makeDefault />
 
-        <mesh position-x={-2} position-y={1} castShadow>
-          <sphereGeometry />
-          <meshStandardMaterial color='orange' envMapIntensity={3.5} />
-        </mesh>
+      <mesh position-x={-2} position-y={1} castShadow>
+        <sphereGeometry />
+        <meshStandardMaterial color='orange' envMapIntensity={3.5} />
+      </mesh>
 
-        <mesh ref={cube} position-x={2} position-y={1} scale={1.5} castShadow>
-          <boxGeometry />
-          <meshStandardMaterial
-            color='mediumpurple'
-            // envMapIntensity={envMapIntensity}
-            envMapIntensity={3.5}
-          />
-        </mesh>
-      </Stage>
+      <mesh ref={cube} position-x={2} position-y={1} scale={1.5} castShadow>
+        <boxGeometry />
+        <meshStandardMaterial
+          color='mediumpurple'
+          // envMapIntensity={envMapIntensity}
+          envMapIntensity={3.5}
+        />
+      </mesh>
+      {/* </Stage> */}
 
       <mesh
         position-y={-1}
