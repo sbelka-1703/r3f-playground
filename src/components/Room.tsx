@@ -12,7 +12,7 @@ function Room() {
   const displacementMap = useTexture('textures/Plank030A/Planks030A_2K_Displacement.jpg')
 
   const { sunPosition } = useControls('sky', {
-    SunPosition: { value: [1, 2, -3] },
+    sunPosition: { value: [0, 0, 0] },
   })
 
   return (
