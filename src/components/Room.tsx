@@ -1,4 +1,4 @@
-import { OrbitControls, useTexture, PivotControls } from '@react-three/drei'
+import { OrbitControls, useTexture, PivotControls, Sky } from '@react-three/drei'
 import Wall from './Wall'
 import Model from './Model'
 import BackWall from './walls/BackWall'
@@ -9,8 +9,12 @@ function Room() {
   const normalMap = useTexture('textures/Plank030A/Planks030A_2K_NormalGL.jpg')
   const roughnessMap = useTexture('textures/Plank030A/Planks030A_2K_Roughness.jpg')
   const displacementMap = useTexture('textures/Plank030A/Planks030A_2K_Displacement.jpg')
+
+  {
+  }
   return (
     <>
+      {/* <Sky sunPosition={} /> */}
       <OrbitControls makeDefault />
       <PivotControls>
         <mesh castShadow>
