@@ -1,6 +1,8 @@
 import { OrbitControls, useTexture, PivotControls, Sky } from '@react-three/drei'
 import Wall from './Wall'
 import Model from './Model'
+import { Perf } from 'r3f-perf'
+
 import BackWall from './walls/BackWall'
 import SideWall from './walls/SideWall'
 import { useControls } from 'leva'
@@ -19,7 +21,7 @@ function Room() {
   return (
     <>
       <Sky sunPosition={sunPosition} />
-      <DirectionalLightWithHelper position={sunPosition} />
+      <DirectionalLightWithHelper position={sunPosition} intensity={10} />
 
       <OrbitControls makeDefault />
       <PivotControls>
@@ -42,7 +44,8 @@ function Room() {
       <SideWall position={[0, 2, -5]} rotation={[0, Math.PI, 0]} />
       <BackWall position={[5, 2, 0]} rotation={[0, Math.PI * 0.5, 0]} />
 
-      {/* <Model url='/models/broken-window/broken_window.glb' position={[5, 2, 0]} rotation={[0, 1.55, 0]} /> */}
+      <Model url='/models/broken-window/broken_window.glb' position={[5, 2, 0]} rotation={[0, 1.55, 0]} />
+      <Perf position='top-left' />
     </>
   )
 }
