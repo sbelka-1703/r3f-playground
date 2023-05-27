@@ -1,6 +1,7 @@
 import { OrbitControls, Html } from '@react-three/drei'
+import {sa}
 
-function CubeExample() {
+const CubeExample = () {
   return (
     <>
       <OrbitControls makeDefault />
