@@ -3,6 +3,7 @@ import Wall from './Wall'
 import Model from './Model'
 import BackWall from './walls/BackWall'
 import SideWall from './walls/SideWall'
+import { useControls } from 'leva'
 
 function Room() {
   const map = useTexture('textures/Plank030A/Planks030A_2K_Color.jpg')
@@ -10,11 +11,12 @@ function Room() {
   const roughnessMap = useTexture('textures/Plank030A/Planks030A_2K_Roughness.jpg')
   const displacementMap = useTexture('textures/Plank030A/Planks030A_2K_Displacement.jpg')
 
-  {
-  }
+  const { sunPosition } = useControls('sky', {
+    position: [-1, 2, 3],
+  })
   return (
     <>
-      {/* <Sky sunPosition={} /> */}
+      <Sky sunPosition={sunPosition} />
       <OrbitControls makeDefault />
       <PivotControls>
         <mesh castShadow>
