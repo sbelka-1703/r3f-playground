@@ -27,7 +27,7 @@ import { useControls } from 'leva'
 //   rings: 11,
 // })
 
-export default function Experience() {
+export default function Experience46() {
   const cube = useRef()
   const directionalLight = useRef()
   useHelper(directionalLight, THREE.DirectionalLightHelper, 1)
